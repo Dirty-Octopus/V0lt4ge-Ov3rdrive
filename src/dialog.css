@@ -1,0 +1,487 @@
+/* Secondary pages share the menu's paper shapes; controls use menu-motion.css. */
+#overlay {
+  width: min(760px, calc(100vw - 72px));
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  isolation: isolate;
+}
+#overlay::backdrop {
+  background: #09090de0;
+}
+#overlay::before,
+#overlay::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  clip-path: polygon(0 2%, 98% 0, 100% 97%, 2% 100%);
+}
+#overlay::before {
+  inset: -4px 7px 5px -6px;
+  background: var(--paper);
+  z-index: -2;
+}
+#overlay::after {
+  inset: 7px -9px -10px 7px;
+  background: var(--red);
+  z-index: -1;
+}
+#overlay[open] {
+  animation: dialog-paper-enter 180ms ease-out;
+}
+#overlay .dialog-sheet {
+  max-height: calc(100dvh - 68px);
+  padding: 36px 42px 28px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scroll-padding-block: 24px;
+  background: var(--ink);
+  clip-path: polygon(
+    0 14px,
+    calc(100% - 20px) 0,
+    100% calc(100% - 16px),
+    13px 100%
+  );
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) var(--ink);
+}
+#overlay .dialog-heading {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 0 36px;
+  min-width: 0;
+}
+#overlay .dialog-index {
+  flex: 0 0 auto;
+  color: var(--red);
+  font: 64px / 1 var(--display);
+  letter-spacing: -3px;
+}
+#overlay .dialog-title-wrap {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+}
+#overlay .dialog-title-wrap::before,
+#overlay .dialog-title-wrap::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  clip-path: polygon(1% 5%, 99% 0, 97% 97%, 0 100%);
+  animation: selection-cuts 1.12s steps(1, end) infinite;
+}
+#overlay .dialog-title-wrap::before {
+  inset: -2px -16px 0 -12px;
+  background: var(--paper);
+  z-index: -1;
+}
+#overlay .dialog-title-wrap::after {
+  inset: 4px -21px -6px -7px;
+  background: var(--red);
+  z-index: -2;
+}
+#overlay .dialog-heading h2 {
+  color: var(--ink);
+  font-family: var(--display), "PingFang SC", sans-serif;
+  font-size: clamp(34px, 4.1vw, 54px);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  padding: 4px 0 8px;
+  position: relative;
+  overflow-wrap: anywhere;
+}
+#overlay .dialog-actions {
+  margin-top: 24px;
+  padding: 3px 8px 4px;
+}
+#overlay .action-button {
+  margin-top: 0;
+  font-size: 17px;
+}
+#overlay [data-entry] {
+  animation: dialog-content-enter 220ms ease-out both;
+  animation-delay: var(--entry-delay, 0ms);
+}
+
+/* One rhythm for the three audio channels, stacked on narrow screens. */
+#overlay .settings-layout {
+  display: grid;
+  gap: 24px;
+}
+#overlay .setting-row {
+  margin: 0;
+  min-width: 0;
+}
+#overlay .setting-row > label {
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0.035em;
+  margin-bottom: 12px;
+}
+#overlay .difficulty-row {
+  padding: 2px 8px 0;
+}
+#overlay .difficulty-row p {
+  color: #d7d1c4;
+  font-size: 12px;
+  margin-top: 12px;
+}
+#overlay .segmented {
+  gap: 12px;
+}
+#overlay .segmented button {
+  min-height: 46px;
+  padding: 12px 8px;
+  font-size: 15px;
+}
+#overlay .volume-bank {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+#overlay .volume-row {
+  padding: 14px 12px 10px;
+}
+#overlay .volume-row > label {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 4px;
+  min-height: 73px;
+}
+#overlay .volume-row label > span {
+  min-height: 2.9em;
+}
+#overlay .volume-row output {
+  font: 32px / 1 var(--display);
+  letter-spacing: 0.01em;
+}
+#overlay .volume-row input {
+  margin: 14px 0 7px;
+}
+#overlay .preference-bank {
+  display: grid;
+  gap: 14px;
+  padding: 0 8px;
+}
+#overlay .setting-row.inline {
+  gap: 18px;
+  min-height: 40px;
+  padding: 5px 8px;
+}
+#overlay .setting-row.inline label {
+  margin: 0;
+}
+#overlay .flat-button {
+  padding: 10px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* Keys form a clear reading rail; instructions keep their own hierarchy. */
+#overlay .guide-list {
+  max-height: none;
+  overflow: visible;
+  display: grid;
+  gap: 22px;
+}
+#overlay .guide-item {
+  display: grid;
+  grid-template-columns: 106px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin: 0;
+}
+#overlay .guide-key {
+  padding: 9px 6px 12px;
+  color: var(--paper);
+  border-bottom: 4px solid var(--red);
+  text-align: center;
+}
+#overlay .guide-key kbd {
+  font: 700 19px / 1.35 monospace;
+  color: inherit;
+  white-space: nowrap;
+}
+#overlay .guide-key > span {
+  display: block;
+  font: 12px / 1.3 monospace;
+  color: #d7d1c4;
+  margin-top: 6px;
+  letter-spacing: 2px;
+}
+#overlay .guide-copy h3 {
+  margin: 0 0 7px;
+  font-size: 17px;
+  line-height: 1.35;
+  color: var(--paper);
+}
+#overlay .guide-copy p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #d7d1c4;
+  margin: 0;
+}
+
+/* Locked records retain full text contrast. Status is carried by the stamp. */
+#overlay .archive-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: -7px 0 20px;
+  color: var(--paper);
+}
+#overlay .archive-progress > span {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+#overlay .archive-progress > strong {
+  font: 34px / 1 var(--display);
+  color: var(--red);
+}
+#overlay .archive-progress small {
+  margin-left: 8px;
+  color: var(--paper);
+  font: 16px / 1 var(--display);
+}
+#overlay .achievement-list {
+  display: grid;
+  gap: 10px;
+}
+#overlay .achievement-item {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  opacity: 1;
+  padding: 15px 8px 18px;
+  border-bottom: 1px solid #f6eedb38;
+}
+#overlay .achievement-symbol {
+  color: var(--paper);
+  font-size: 39px;
+  width: auto;
+  text-align: center;
+}
+#overlay .achievement-item.obtained .achievement-symbol {
+  color: var(--red);
+}
+#overlay .achievement-copy strong {
+  font-size: 19px;
+  line-height: 1.35;
+  color: var(--paper);
+}
+#overlay .achievement-copy p {
+  color: #d7d1c4;
+  font-size: 12px;
+  line-height: 1.55;
+  margin-top: 5px;
+}
+#overlay .achievement-item > small {
+  color: var(--paper);
+  font: 700 10px / 1.4 monospace;
+  white-space: nowrap;
+}
+#overlay .achievement-item.obtained > small {
+  color: var(--red);
+}
+
+#overlay[data-kind="pause"],
+#overlay[data-kind="gameover"] {
+  width: min(610px, calc(100vw - 72px));
+}
+#overlay[data-kind="pause"] .dialog-heading,
+#overlay[data-kind="gameover"] .dialog-heading {
+  margin-bottom: 32px;
+}
+#overlay .result-score {
+  margin: 32px 8px 28px;
+}
+
+@keyframes dialog-paper-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes dialog-content-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  #overlay,
+  #overlay[data-kind="pause"],
+  #overlay[data-kind="gameover"] {
+    width: calc(100vw - 30px);
+  }
+  #overlay::before {
+    inset: -3px 4px 4px -3px;
+  }
+  #overlay::after {
+    inset: 5px -5px -6px 4px;
+  }
+  #overlay .dialog-sheet {
+    max-height: calc(100dvh - 36px);
+    padding: 29px 24px 23px;
+    scroll-padding-block: 18px;
+  }
+  #overlay .dialog-heading {
+    gap: 14px;
+    margin-bottom: 27px;
+  }
+  #overlay .dialog-index {
+    font-size: 42px;
+    letter-spacing: -2px;
+  }
+  #overlay .dialog-heading h2 {
+    font-size: clamp(27px, 7.7vw, 34px);
+    line-height: 1.15;
+  }
+  #overlay .dialog-title-wrap::before {
+    inset: -1px -9px 0 -7px;
+  }
+  #overlay .dialog-title-wrap::after {
+    inset: 3px -12px -4px -4px;
+  }
+  #overlay .settings-layout {
+    gap: 19px;
+  }
+  #overlay .volume-bank {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  #overlay .volume-row {
+    padding: 9px 8px 8px;
+  }
+  #overlay .volume-row > label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 0;
+    margin-bottom: 0;
+  }
+  #overlay .volume-row label > span {
+    min-height: 0;
+    max-width: 75%;
+  }
+  #overlay .volume-row output {
+    font-size: 25px;
+  }
+  #overlay .volume-row input {
+    margin: 15px 0 3px;
+  }
+  #overlay .setting-row > label {
+    font-size: 11px;
+  }
+  #overlay .difficulty-row {
+    padding-inline: 2px;
+  }
+  #overlay .difficulty-row p {
+    font-size: 11px;
+  }
+  #overlay .segmented {
+    gap: 7px;
+  }
+  #overlay .segmented button {
+    font-size: 12px;
+    padding: 10px 4px;
+  }
+  #overlay .preference-bank {
+    gap: 12px;
+    padding: 0;
+  }
+  #overlay .setting-row.inline {
+    gap: 10px;
+    padding-inline: 4px;
+  }
+  #overlay .flat-button {
+    font-size: 10px;
+    padding: 10px 8px;
+  }
+  #overlay .dialog-actions {
+    margin-top: 24px;
+    padding-inline: 3px;
+  }
+  #overlay .guide-list {
+    gap: 25px;
+  }
+  #overlay .guide-item {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 15px;
+  }
+  #overlay .guide-key {
+    padding: 7px 0 11px;
+    border-bottom-width: 3px;
+  }
+  #overlay .guide-key kbd {
+    font-size: 12px;
+  }
+  #overlay .guide-key > span {
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+  #overlay .guide-copy h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+  }
+  #overlay .guide-copy p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  #overlay .archive-progress {
+    margin-bottom: 14px;
+  }
+  #overlay .achievement-list {
+    gap: 7px;
+  }
+  #overlay .achievement-item {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 2px 15px;
+  }
+  #overlay .achievement-symbol {
+    font-size: 30px;
+    grid-row: 1 / 3;
+  }
+  #overlay .achievement-copy strong {
+    font-size: 17px;
+  }
+  #overlay .achievement-copy p {
+    font-size: 11px;
+  }
+  #overlay .achievement-item > small {
+    grid-column: 2;
+    font-size: 9px;
+    margin-top: -6px;
+  }
+  #overlay .result-score {
+    margin-inline: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #overlay,
+  #overlay [data-entry],
+  #overlay .dialog-title-wrap::before,
+  #overlay .dialog-title-wrap::after {
+    animation: none !important;
+  }
+}
+html[data-motion="reduced"] #overlay,
+html[data-motion="reduced"] #overlay [data-entry],
+html[data-motion="reduced"] #overlay .dialog-title-wrap::before,
+html[data-motion="reduced"] #overlay .dialog-title-wrap::after {
+  animation: none !important;
+}

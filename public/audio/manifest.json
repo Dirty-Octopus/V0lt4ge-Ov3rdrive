@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "encoding": "FLAC, 16-bit PCM with triangular dither, original sample rate and frame count",
+  "sharedGain": 0.85,
+  "phaseCrossfadeSeconds": 0.65,
+  "menuFadeSeconds": 0.35,
+  "ultimateRecoverySeconds": 0.65,
+  "assets": {
+    "menuFill": {
+      "file": "menuFill.flac",
+      "source": "Music/Menu/VOMenuFill.wav",
+      "sampleRate": 44100,
+      "frames": 26460,
+      "channels": 2,
+      "duration": 0.6,
+      "sourcePeak": 0.93985915184021,
+      "bytes": 54725,
+      "sha256": "6860bc9be66b25fc3f996253c0ab703ae6a5f83de5f417e8553b1e207e55d770"
+    },
+    "menu": {
+      "file": "menu.flac",
+      "source": "Music/Menu/VOMenu.wav",
+      "sampleRate": 44100,
+      "frames": 846720,
+      "channels": 2,
+      "duration": 19.2,
+      "sourcePeak": 0.9679970145225525,
+      "bytes": 1659382,
+      "sha256": "ec3859fa0d27d5ca678b98511dbfe45049dfbf2dd84bb58f2407c8596365142d"
+    },
+    "gameStart": {
+      "file": "gameStart.flac",
+      "source": "Music/Main/VOGameStart.wav",
+      "sampleRate": 44100,
+      "frames": 58800,
+      "channels": 2,
+      "duration": 1.3333333333333333,
+      "sourcePeak": 1.014987826347351,
+      "bytes": 158038,
+      "sha256": "79909f3ac508874800c118c23ba95612df6cc3bd35a5b3315d14d9b4daecb506"
+    },
+    "phase1": {
+      "file": "phase1.flac",
+      "source": "Music/Main/VOGamePhase1.wav",
+      "sampleRate": 44100,
+      "frames": 940800,
+      "channels": 2,
+      "duration": 21.333333333333332,
+      "sourcePeak": 1.1406450271606445,
+      "bytes": 2981754,
+      "sha256": "c45c46eb67047323b5c01b560b0c1ae908da5c0a599c09242aeac4adaff34ea7"
+    },
+    "phase2": {
+      "file": "phase2.flac",
+      "source": "Music/Main/VOGamePhase2.wav",
+      "sampleRate": 44100,
+      "frames": 940800,
+      "channels": 2,
+      "duration": 21.333333333333332,
+      "sourcePeak": 1.1405490636825562,
+      "bytes": 3011905,
+      "sha256": "ecc3df73f29e7f040d6e57aa744e35934d17f51c8c2339991f87f59822d043f9"
+    },
+    "phase3": {
+      "file": "phase3.flac",
+      "source": "Music/Main/VOGamePhase3.wav",
+      "sampleRate": 44100,
+      "frames": 940800,
+      "channels": 2,
+      "duration": 21.333333333333332,
+      "sourcePeak": 1.1388936042785645,
+      "bytes": 3032742,
+      "sha256": "6c4fbe4a945e0be1eab69c983dfd5a1e87330bb52f2fc737371dcbe53349c22f"
+    },
+    "phase4": {
+      "file": "phase4.flac",
+      "source": "Music/Main/VOGamePhase4.wav",
+      "sampleRate": 44100,
+      "frames": 940800,
+      "channels": 2,
+      "duration": 21.333333333333332,
+      "sourcePeak": 1.140821099281311,
+      "bytes": 3065153,
+      "sha256": "1103c981ff11a293fa97b50befb7c4c988fb88ad22ac7d42d8863af8ace0788a"
+    },
+    "phase5": {
+      "file": "phase5.flac",
+      "source": "Music/Main/VOGamePhase5.wav",
+      "sampleRate": 44100,
+      "frames": 940800,
+      "channels": 2,
+      "duration": 21.333333333333332,
+      "sourcePeak": 1.1369614601135254,
+      "bytes": 3112770,
+      "sha256": "ff928b0148281d2879bd451fc49c82c7fbfbb1061ea4baedc6690d1f2ff2e012"
+    },
+    "attack1": {
+      "file": "attack1.flac",
+      "source": "SFX/Attack/Attack1.wav",
+      "sampleRate": 44100,
+      "frames": 58800,
+      "channels": 2,
+      "duration": 1.3333333333333333,
+      "sourcePeak": 1.0796582698822021,
+      "bytes": 143962,
+      "sha256": "01dfb32e771bc7e023e8ba1152aa8dc29c112c085b0bc0f24dddd885c7a97da0"
+    },
+    "attack2": {
+      "file": "attack2.flac",
+      "source": "SFX/Attack/Attack2.wav",
+      "sampleRate": 44100,
+      "frames": 59936,
+      "channels": 2,
+      "duration": 1.359092970521542,
+      "sourcePeak": 1.036105751991272,
+      "bytes": 145012,
+      "sha256": "cc6365bf57aaf4ec029788d3cedeb3d966dfaf984beb38aeecfbdbbeb0efcf03"
+    },
+    "attack3": {
+      "file": "attack3.flac",
+      "source": "SFX/Attack/Attack3.wav",
+      "sampleRate": 44100,
+      "frames": 58800,
+      "channels": 2,
+      "duration": 1.3333333333333333,
+      "sourcePeak": 0.9514943957328796,
+      "bytes": 110803,
+      "sha256": "573644dda3cc706a7d04a950acfd4ca23f914df8ed931d5eba0b88c3c6f56856"
+    },
+    "killed1": {
+      "file": "killed1.flac",
+      "source": "SFX/Killed/Killed1.wav",
+      "sampleRate": 44100,
+      "frames": 29400,
+      "channels": 2,
+      "duration": 0.6666666666666666,
+      "sourcePeak": 1.00929856300354,
+      "bytes": 76164,
+      "sha256": "7bde2d82b5e19c0d9a7d022a7fdc158e9d64bc990214d3d3b3ac353316a6ba5d"
+    },
+    "killed2": {
+      "file": "killed2.flac",
+      "source": "SFX/Killed/Killed2.wav",
+      "sampleRate": 44100,
+      "frames": 29400,
+      "channels": 2,
+      "duration": 0.6666666666666666,
+      "sourcePeak": 0.9520924687385559,
+      "bytes": 83192,
+      "sha256": "c517428e5e2a1a44b1db873fc1c5c465cbac435dfa8863efd3f0c266886a9b25"
+    },
+    "damage": {
+      "file": "damage.flac",
+      "source": "SFX/Damage/Damage.wav",
+      "sampleRate": 44100,
+      "frames": 51450,
+      "channels": 2,
+      "duration": 1.1666666666666667,
+      "sourcePeak": 0.9538949728012085,
+      "bytes": 136409,
+      "sha256": "70e7c181c07315d73028bf4103f11b8bc5439ceb00788cabef46dfdfa86f9515"
+    },
+    "click": {
+      "file": "click.flac",
+      "source": "SFX/UI/Click.wav",
+      "sampleRate": 44100,
+      "frames": 5958,
+      "channels": 2,
+      "duration": 0.13510204081632654,
+      "sourcePeak": 0.9007080793380737,
+      "bytes": 16878,
+      "sha256": "012d021c3606746450c7348da22417948e9b904a014f83074102d99e72476511"
+    },
+    "change": {
+      "file": "change.flac",
+      "source": "SFX/UI/Change.wav",
+      "sampleRate": 44100,
+      "frames": 17262,
+      "channels": 2,
+      "duration": 0.3914285714285714,
+      "sourcePeak": 0.9090571999549866,
+      "bytes": 32665,
+      "sha256": "ab5a784be9cbea7e3c58614a95b66d957ecf398f10242bcf28f0a08c0cbdd71f"
+    },
+    "achievement": {
+      "file": "achievement.flac",
+      "source": "SFX/UI/Achievement.wav",
+      "sampleRate": 44100,
+      "frames": 51873,
+      "channels": 2,
+      "duration": 1.1762585034013606,
+      "sourcePeak": 0.6177739500999451,
+      "bytes": 104958,
+      "sha256": "e432d04cea68ba947a5e01956db182411de27ac773ffe963dcbcff3a569ecbc6"
+    },
+    "ultimateCharge": {
+      "file": "ultimateCharge.flac",
+      "source": "SFX/Ultimate/UltimateCharge.wav",
+      "sampleRate": 44100,
+      "frames": 90037,
+      "channels": 2,
+      "duration": 2.041655328798186,
+      "sourcePeak": 0.9536844491958618,
+      "bytes": 259068,
+      "sha256": "4cbe1ad9b9d08113e8fb8c5f683a53b3b185795cc951da53b4fd3cb031814677"
+    },
+    "ultimateBurst": {
+      "file": "ultimateBurst.flac",
+      "source": "SFX/Ultimate/UltimateInitialBurst.wav",
+      "sampleRate": 44100,
+      "frames": 24806,
+      "channels": 2,
+      "duration": 0.5624943310657596,
+      "sourcePeak": 0.8733437061309814,
+      "bytes": 82066,
+      "sha256": "55307af89f85f094ca58bfdcff9953e9a069f4017d3fe74ac618734ea3c07b3a"
+    },
+    "ultimateExplosion": {
+      "file": "ultimateExplosion.flac",
+      "source": "SFX/Ultimate/UltimateMainExplosion.wav",
+      "sampleRate": 44100,
+      "frames": 164456,
+      "channels": 2,
+      "duration": 3.7291609977324263,
+      "sourcePeak": 0.9646779894828796,
+      "bytes": 304112,
+      "sha256": "85c2c1f4db6525f9920962d20e7616c4d5f1ba2524a75ad698daa436a396b2f8"
+    }
+  }
+}

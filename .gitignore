@@ -1,0 +1,7 @@
+node_modules/
+dist/
+audioAssets/
+.DS_Store
+test-results/
+playwright-report/
+.local/

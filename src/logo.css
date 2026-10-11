@@ -1,0 +1,107 @@
+/* Each cube has its own clipped 3D scene. Static letters are foreground ink;
+   neither a rotating face nor its defocus can paint over adjacent glyphs. */
+@property --cube-turn {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+.logo-letter {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+.logo-cube {
+  --cube-depth: 0.435em;
+  --cube-depth-blur: 0.05em;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  vertical-align: baseline;
+  text-align: center;
+  line-height: 0.87;
+}
+.cube-sizer {
+  visibility: hidden;
+}
+.cube-window {
+  position: absolute;
+  /* Font ascenders have a little overshoot; horizontal ink stays in its cell. */
+  inset: -0.06em -0.015em -0.035em;
+  overflow: hidden;
+}
+.cube-stage {
+  position: absolute;
+  inset: 0.06em 0.015em 0.035em;
+  perspective: 3.6em;
+  perspective-origin: 50% 50%;
+}
+.cube-rotor {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(-1 * var(--cube-depth)))
+    rotateX(calc(-90deg * var(--cube-turn)));
+}
+.cube-face {
+  display: block;
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--ink);
+  text-shadow: none;
+}
+.cube-glyph {
+  display: block;
+  /* Face-center depth is proportional to 1 - cos(angle). Filter the glyph
+     only: putting a filter on the rotor would flatten its 3D descendants. */
+  --face-focus: cos(calc(90deg * var(--cube-turn)));
+  filter: blur(calc((1 - var(--face-focus)) * var(--cube-depth-blur)))
+    brightness(calc(0.72 + 0.28 * var(--face-focus)));
+}
+.cube-alternate .cube-glyph {
+  --face-focus: sin(calc(90deg * var(--cube-turn)));
+}
+.cube-front {
+  transform: translateZ(var(--cube-depth));
+}
+.cube-vertical .cube-alternate {
+  transform: rotateX(90deg) translateZ(var(--cube-depth));
+}
+.cube-horizontal {
+  --cube-depth: 0.235em;
+  --cube-depth-blur: 0.035em;
+}
+.cube-horizontal .cube-rotor {
+  transform: translateZ(calc(-1 * var(--cube-depth)))
+    rotateY(calc(90deg * var(--cube-turn)));
+}
+.cube-horizontal .cube-alternate {
+  transform: rotateY(-90deg) translateZ(var(--cube-depth));
+}
+.logo-build .cube-rotor {
+  animation: cube-turn 7.2s cubic-bezier(0.65, 0, 0.25, 1) infinite;
+}
+.logo-build .cube-horizontal .cube-rotor {
+  animation-delay: 160ms;
+}
+@keyframes cube-turn {
+  0%,
+  9% {
+    --cube-turn: 0;
+  }
+  23%,
+  55% {
+    --cube-turn: 1;
+  }
+  69%,
+  100% {
+    --cube-turn: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-build .cube-rotor {
+    animation: none;
+  }
+}
